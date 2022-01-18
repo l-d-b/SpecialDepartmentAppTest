@@ -45,6 +45,14 @@ public class MainPage extends BasePage {
         logButton.click();
     }
 
+    public String getLoggedUser() {
+        return loggedUser.getText();
+    }
+
+    public String getLoggingButtonText() {
+        return logButton.getText();
+    }
+
     public boolean loggedUserIsVisible() {
         try {
             System.out.println(loggedUser.getText());

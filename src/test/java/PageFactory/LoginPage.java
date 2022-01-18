@@ -15,9 +15,7 @@ public class LoginPage extends BasePage{
     @FindBy(id="password") WebElement password;
     @FindBy(xpath="//button[text()='Submit']")WebElement loginSubmit;
     @FindBy(id="errorMessage")WebElement warning;
-    @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
     @FindBy(xpath="//*[@class='login-block']") WebElement loginBlock;
-    @FindBy(xpath="//a[@href='/login']") WebElement logButton;
 
 
     public LoginPage() {
@@ -57,29 +55,8 @@ public class LoginPage extends BasePage{
         loginSubmit.click();
     }
 
-    public void login(String usernameInput, String passwordInput) {
-        driver.navigate().to("http://localhost:3000/login");
-        wait.until(ExpectedConditions.visibilityOf(email));
-        email.sendKeys(usernameInput);
-        wait.withTimeout(Duration.ofSeconds(2));
-        password.sendKeys(passwordInput);
-        loginSubmit.click();
-    }
-
-    public String getLoggedUser() {
-        return loggedUser.getText();
-    }
-
-    public String getLoggingButtonText() {
-        return logButton.getText();
-    }
-
     public String getWarning() {
         return warning.getText();
     }
 
-
-    public void waitUntilVisibilityOfAvatar(){
-        wait.until(ExpectedConditions.visibilityOf(loggedUser));
-    }
 }
