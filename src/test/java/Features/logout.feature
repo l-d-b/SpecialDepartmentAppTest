@@ -7,3 +7,4 @@ Feature: Application logout
     And I go to Main page
     And I shouldn't see logged user
     And I should see "LOGIN" button
+    And Tear down

@@ -6,6 +6,8 @@ Feature: Application login
     And I fill in Password with <Password>
     And I press Submit
     Then I should see warning message <expectedText>
+    And Login correct
+    And Tear down
     Examples:
       | Username | Password | expectedText |
       | "test@test.com" | "wrongpassword" | Wrong email address or password was given! Try again.. |
@@ -18,3 +20,4 @@ Feature: Application login
     And I press Submit
     Then I should see logged user "Logged user: Alec Test"
     And I should see "LOGOUT" button
+    And Tear down

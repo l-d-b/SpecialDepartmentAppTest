@@ -53,9 +53,13 @@ public class LoginStepDefinitions {
         Assertions.assertEquals(objMainPage.getLoggingButtonText(), strArg1);
     }
 
-    @After
+    @And("Tear down")
     public void tearDown() {
         objLoginPage.tearDown();
     }
 
+    @And("Login correct")
+    public void loginCorrect() {
+        objLoginPage.loginCorrectly();
+    }
 }

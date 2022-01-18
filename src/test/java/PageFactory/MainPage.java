@@ -1,7 +1,5 @@
 package PageFactory;
 
-import click.webelement.pagefactory.parameterized.DefaultParameterProvider;
-import click.webelement.pagefactory.parameterized.FindByParameterized;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -11,8 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
-import java.util.Map;
-
 
 public class MainPage extends BasePage {
 
@@ -24,6 +20,7 @@ public class MainPage extends BasePage {
     @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
 
     public MainPage() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 

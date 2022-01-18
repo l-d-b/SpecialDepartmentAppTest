@@ -5,6 +5,7 @@ Feature: Choose a profession
     When User click on Profession menu point
     Then User click on a profession <profession>
     And Chek that the corresponding workers show up <profession> <numberOfWorker>
+    And Tear down
 
     Examples:
       | profession                          | numberOfWorker |

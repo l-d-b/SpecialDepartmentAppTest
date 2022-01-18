@@ -26,7 +26,6 @@ public class LogoutStepDefinitions {
         objMainPage.pressLogoutButton();
     }
 
-
     @And("^I shouldn't see logged user$")
     public void i_shouldnt_see_logged_user() throws Throwable {
         Assertions.assertFalse(objMainPage.loggedUserIsVisible());
