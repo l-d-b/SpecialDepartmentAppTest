@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 import PageFactory.LoginPage;
+import io.cucumber.java.After;
 import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -48,6 +49,11 @@ public class LoginStepDefinitions {
     @And("^I should see \"([^\"]*)\" button$")
     public void i_should_see_something_button(String strArg1) {
         Assertions.assertEquals(objLoginPage.getLoggingButtonText(), strArg1);
+    }
+
+    @After
+    public void tearDown() {
+        objLoginPage.tearDown();
     }
 
 }
