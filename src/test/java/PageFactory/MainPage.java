@@ -19,16 +19,11 @@ public class MainPage extends BasePage {
     @FindBy(xpath = "//div[@id='sidebar']//div[text()='Professions']")
     WebElement professionsMenuPoint;
 
-    @FindByParameterized(xpath = "//div[@id='sidebar']//div[text()='Professions']//following-sibling::ul//li[text()='{wec:li.text}']")
-    public WebElement profession;
-
     @FindBy(xpath="//a[@href='/login']") WebElement logButton;
 
     @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
 
-    public MainPage(String profession) {
-        DefaultParameterProvider.properties.set(Map.of("li.text", profession));
-        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
+    public MainPage() {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 

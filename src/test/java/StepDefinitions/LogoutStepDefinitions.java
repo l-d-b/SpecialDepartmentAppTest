@@ -14,7 +14,7 @@ import org.junit.runner.RunWith;
 @RunWith(Cucumber.class)
 public class LogoutStepDefinitions {
     LoginPage objLoginPage = new LoginPage();
-    MainPage objMainPage = new MainPage("Carpenter");
+    MainPage objMainPage = new MainPage();
 
     @Given("^I am logged in$")
     public void i_am_logged_in() {
