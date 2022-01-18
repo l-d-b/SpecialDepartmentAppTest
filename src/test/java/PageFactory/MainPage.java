@@ -2,11 +2,15 @@ package PageFactory;
 
 import click.webelement.pagefactory.parameterized.DefaultParameterProvider;
 import click.webelement.pagefactory.parameterized.FindByParameterized;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Map;
 
 
@@ -18,8 +22,13 @@ public class MainPage extends BasePage {
     @FindByParameterized(xpath = "//div[@id='sidebar']//div[text()='Professions']//following-sibling::ul//li[text()='{wec:li.text}']")
     public WebElement profession;
 
+    @FindBy(xpath="//a[@href='/login']") WebElement logButton;
+
+    @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
+
     public MainPage(String profession) {
         DefaultParameterProvider.properties.set(Map.of("li.text", profession));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 
@@ -29,5 +38,22 @@ public class MainPage extends BasePage {
 
     public void clickOnProfessionsMenuPoint(){
         professionsMenuPoint.click();
+    }
+
+    public void pressLogoutButton() {
+        wait.until(ExpectedConditions.visibilityOf(logButton));
+        logButton.click();
+    }
+
+    public boolean loggedUserIsVisible() {
+        try {
+            System.out.println(loggedUser.getText());
+            return loggedUser.isDisplayed();
+
+        } catch (NoSuchElementException e) {
+            System.out.println("Element not exists");
+            return false;
+        }
+
     }
 }

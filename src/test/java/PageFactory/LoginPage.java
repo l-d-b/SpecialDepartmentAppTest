@@ -16,6 +16,7 @@ public class LoginPage extends BasePage{
     @FindBy(xpath="//button[text()='Submit']")WebElement loginSubmit;
     @FindBy(id="errorMessage")WebElement warning;
     @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
+    @FindBy(xpath="//*[@class='login-block']") WebElement loginBlock;
     @FindBy(xpath="//a[@href='/login']") WebElement logButton;
 
 
@@ -31,11 +32,14 @@ public class LoginPage extends BasePage{
     public void loginCorrectly() {
         driver.navigate().to("http://localhost:3000/login");
         wait.until(ExpectedConditions.visibilityOf(email));
-        email.sendKeys(System.getenv("username"));
+        email.sendKeys("test@test.com");
         wait.withTimeout(Duration.ofSeconds(2));
-        password.sendKeys(System.getenv("password"));
+        password.sendKeys("1234");
         loginSubmit.click();
-        waitUntilVisibilityOfAvatar();
+    }
+
+    public boolean loginBlockIsVisible() {
+        return loginBlock.isDisplayed();
     }
 
     public void setEmail(String usernameInput) {
