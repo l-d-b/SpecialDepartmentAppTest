@@ -22,7 +22,6 @@ public class BasePage {
 
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
-            PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
             driver.manage().window().maximize();
         }
     }
