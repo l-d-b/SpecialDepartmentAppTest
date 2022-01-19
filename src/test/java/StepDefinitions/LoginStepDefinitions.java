@@ -60,6 +60,6 @@ public class LoginStepDefinitions {
 
     @And("Login correct")
     public void loginCorrect() {
-        objLoginPage.loginCorrectly();
+        objLoginPage.loginCorrectly("test@test.com");
     }
 }

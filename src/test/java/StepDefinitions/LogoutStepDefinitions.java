@@ -18,7 +18,7 @@ public class LogoutStepDefinitions {
 
     @Given("^I am logged in$")
     public void i_am_logged_in() {
-        objLoginPage.loginCorrectly();
+        objLoginPage.loginCorrectly("test@test.com");
     }
 
     @When("^I press LOGOUT button$")
