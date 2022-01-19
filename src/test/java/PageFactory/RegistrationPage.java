@@ -8,9 +8,13 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.nio.charset.Charset;
 import java.time.Duration;
+import java.util.Random;
 
 public class RegistrationPage extends BasePage {
+
+    String emailAddress;
 
     @FindBy (xpath="//input[@id='firstName']") WebElement firstName;
     @FindBy (xpath="//input[@id='lastName']") WebElement lastName;
@@ -46,17 +50,34 @@ public class RegistrationPage extends BasePage {
         lastName.sendKeys(lastNameInput);
     }
 
+    public String generateEmailAddress() {
+        int leftLimit = 97; // letter 'a'
+        int rightLimit = 122; // letter 'z'
+        int targetStringLength = 3;
+        Random random = new Random();
+        StringBuilder buffer = new StringBuilder(targetStringLength);
+        for (int i = 0; i < targetStringLength; i++) {
+            int randomLimitedInt = leftLimit + (int)
+                    (random.nextFloat() * (rightLimit - leftLimit + 1));
+            buffer.append((char) randomLimitedInt);
+        }
+        return buffer.toString();
+    }
+
     public void setEmail(String emailInput) {
-        email.sendKeys(emailInput);
+        emailAddress = generateEmailAddress();
+        System.out.println(emailAddress);
+        email.sendKeys(emailAddress+emailInput);
+    }
+
+    public String getEmailAddress() {
+        return emailAddress;
     }
 
     public void setBirthDate(String birthDateInput) {
         String month = birthDateInput.substring(0, 2);
-        System.out.println(month);
         String day = birthDateInput.substring(2, 4);
-        System.out.println(day);
         String year = birthDateInput.substring(4);
-        System.out.println(year);
         birthDate.click();
         birthDate.sendKeys(Keys.ARROW_LEFT);
         birthDate.sendKeys(Keys.ARROW_LEFT);

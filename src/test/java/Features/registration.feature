@@ -16,6 +16,7 @@ Feature: Registration
     Then I should see the Login page
     And I am able to log in with "worker@test.com"
     And I should see logged user "Logged user: Test Worker"
+    And Tear down
 
   Scenario: User registration
     Given I am on the registration page
@@ -30,4 +31,5 @@ Feature: Registration
     Then I should see the Login page
     And I am able to log in with "user@test.com"
     And I should see logged user "Logged user: Test User"
+    And Tear down
 

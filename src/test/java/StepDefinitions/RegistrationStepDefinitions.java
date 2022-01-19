@@ -2,7 +2,6 @@ package StepDefinitions;
 
 import PageFactory.LoginPage;
 import PageFactory.RegistrationPage;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.When;
@@ -14,7 +13,6 @@ public class RegistrationStepDefinitions {
 
     RegistrationPage objRegistrationPage = new RegistrationPage();
     LoginPage objLoginPage = new LoginPage();
-    int userNumber = 1;
 
     @Given("^I am on the registration page$")
     public void i_am_on_the_registration_page() {
@@ -33,7 +31,7 @@ public class RegistrationStepDefinitions {
 
     @And("^I fill in RegistrationEmail with \"([^\"]*)\"$")
     public void i_fill_in_registrationemail_with_something(String strArg1) {
-        objRegistrationPage.setEmail(userNumber + strArg1);
+        objRegistrationPage.setEmail(strArg1);
     }
 
     @And("^I fill in RegistrationPassword with \"([^\"]*)\"$")
@@ -79,7 +77,6 @@ public class RegistrationStepDefinitions {
 
     @And("^I am able to log in with \"([^\"]*)\"$")
     public void i_am_able_to_log_in_with_something(String strArg1) {
-        objLoginPage.loginCorrectly(userNumber + strArg1);
-        userNumber++;
+        objLoginPage.loginCorrectly(objRegistrationPage.getEmailAddress() + strArg1);
     }
 }
