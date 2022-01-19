@@ -36,8 +36,11 @@ public class MainPageWorkObject extends BasePage{
         return workers.size();
     }
 
+    public void clickOnextraSearchMenuPoint(){
+        extraSearchMenuPoint.click();
+    }
+
     public void clickOnRadioButton(){
         actions.moveToElement(workObjectMenuPoint).click().perform();
-
     }
 }
