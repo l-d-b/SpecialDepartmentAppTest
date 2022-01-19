@@ -12,9 +12,6 @@ import java.time.Duration;
 
 public class MainPage extends BasePage {
 
-    @FindBy(xpath = "//div[@id='sidebar']//div[text()='Professions']")
-    WebElement professionsMenuPoint;
-
     @FindBy(xpath="//a[@href='/login']") WebElement logButton;
 
     @FindBy(xpath="//*[@class='logged-user']") WebElement loggedUser;
@@ -28,9 +25,6 @@ public class MainPage extends BasePage {
         driver.navigate().to("http://localhost:3000/");
     }
 
-    public void clickOnProfessionsMenuPoint(){
-        professionsMenuPoint.click();
-    }
 
     public void pressLogoutButton() {
         wait.until(ExpectedConditions.visibilityOf(logButton));
