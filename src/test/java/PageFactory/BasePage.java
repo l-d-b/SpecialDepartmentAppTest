@@ -14,8 +14,6 @@ public class BasePage {
     protected static final int TIMEOUT = 5;
     protected static final int POLLING = 100;
 
-
-
     public BasePage() {
 
         if (driver == null) {

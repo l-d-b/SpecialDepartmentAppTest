@@ -5,6 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
@@ -18,6 +19,7 @@ public class LoginPage extends BasePage{
 
 
     public LoginPage() {
+        wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
     }
 
@@ -25,10 +27,10 @@ public class LoginPage extends BasePage{
         driver.navigate().to("http://localhost:3000/login");
     }
 
-    public void loginCorrectly() {
+    public void loginCorrectly(String emailInput) {
         driver.navigate().to("http://localhost:3000/login");
         wait.until(ExpectedConditions.visibilityOf(email));
-        email.sendKeys("test@test.com");
+        email.sendKeys(emailInput);
         wait.withTimeout(Duration.ofSeconds(2));
         password.sendKeys("1234");
         loginSubmit.click();
