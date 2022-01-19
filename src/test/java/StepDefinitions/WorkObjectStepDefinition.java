@@ -1,6 +1,7 @@
 package StepDefinitions;
 
 
+import PageFactory.LoginPage;
 import PageFactory.MainPageWorkObject;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -18,13 +19,14 @@ public class WorkObjectStepDefinition {
         mainPageWorkObject.clickOnExtraSearchMenuPoint();
     }
 
-    @Then("^User click on a workObject$")
-    public void user_click_on_a_workobject() throws Throwable {
+    @And("^User click on Work Object menu point$")
+    public void user_click_on_work_object_menu_point() throws Throwable {
         mainPageWorkObject.clickOnWorkObjectMenuPoint();
     }
 
-    @And("^User click on Work Object menu point$")
-    public void user_click_on_work_object_menu_point() throws Throwable {
+    @Then("^User click on a work Object (.+)$")
+    public void user_click_on_a_work_object(String workObject) throws Throwable {
+        MainPageWorkObject mainPageWorkObject = new MainPageWorkObject(workObject);
         mainPageWorkObject.clickOnRadioButton();
     }
 
