@@ -15,11 +15,23 @@ public class MainPageNameSearch extends BasePage{
     @FindBy(xpath = "//input[@id='nameSearch']")
     WebElement searchField;
 
-    @FindBy(xpath = "//div[@id='worker-card-container']//div[@class='worker-card']")
-    WebElement worker;
+    @FindBy(xpath = "//div[@id='worker-card-container']//div[@class='worker-card']//h3")
+    WebElement workerName;
 
 
     public MainPageNameSearch() {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
+    }
+
+    public void clickOnExtraSearchMenuPoint(){
+        extraSearchMenuPoint.click();
+    }
+
+    public void sendKeyToSearchField(String name){
+        searchField.sendKeys(name);
+    }
+
+    public String getWorkerName() {
+        return workerName.getAttribute("innerText");
     }
 }
