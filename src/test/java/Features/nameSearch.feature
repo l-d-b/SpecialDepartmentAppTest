@@ -8,6 +8,6 @@ Feature: Find a worker by name
     And Tear down
 
     Examples:
-      | name      | expectedResult      |
-      | Lukas     | Lukas Phillips (54) |
-      | Joshsssss | No worker found!    |
+      | name       | expectedResult      |
+      | Lukas      | Lukas Phillips (54) |
+      | BurgerKing | No worker found!    |

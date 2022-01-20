@@ -1,7 +1,5 @@
 package StepDefinitions;
 
-
-import PageFactory.LoginPage;
 import PageFactory.MainPageWorkObject;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Then;
@@ -15,12 +13,12 @@ public class WorkObjectStepDefinition {
     MainPageWorkObject mainPageWorkObject = new MainPageWorkObject("");
 
     @Then("^User click on Extra Search menu point$")
-    public void user_click_on_extra_search_menu_point() throws Throwable {
+    public void user_click_on_extra_search_menu_point() {
         mainPageWorkObject.clickOnExtraSearchMenuPoint();
     }
 
     @And("^User click on Work Object menu point$")
-    public void user_click_on_work_object_menu_point() throws Throwable {
+    public void user_click_on_work_object_menu_point() {
         mainPageWorkObject.clickOnWorkObjectMenuPoint();
     }
 
@@ -31,7 +29,7 @@ public class WorkObjectStepDefinition {
     }
 
     @And("^Chek that the proper workers show up (.+)$")
-    public void chek_that_the_proper_workers_show_up(int numberofworker) throws Throwable {
+    public void chek_that_the_proper_workers_show_up(int numberofworker) {
         int actualNumberOfWorker = mainPageWorkObject.returnNumberOfWorkersWhereProfessionIsAppeared();
         assertEquals(numberofworker, actualNumberOfWorker);
     }

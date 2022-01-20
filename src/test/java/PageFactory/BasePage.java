@@ -26,10 +26,6 @@ public class BasePage {
         }
     }
 
-    public void switchToAlert() {
-        driver.switchTo().alert().accept();
-    }
-
     public void tearDown() {
         driver.quit();
         driver = null;
