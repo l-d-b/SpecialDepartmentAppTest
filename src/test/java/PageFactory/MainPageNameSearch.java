@@ -1,5 +1,6 @@
 package PageFactory;
 
+import net.bytebuddy.implementation.bytecode.ShiftRight;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -18,6 +19,9 @@ public class MainPageNameSearch extends BasePage{
     @FindBy(xpath = "//div[@id='worker-card-container']//div[@class='worker-card']//h3")
     WebElement workerName;
 
+    @FindBy(xpath = "//p[@id='no-worker-found']")
+    WebElement noWorkerFoundMessage;
+
 
     public MainPageNameSearch() {
         PageFactory.initElements(new AjaxElementLocatorFactory(driver, TIMEOUT), this);
@@ -34,4 +38,10 @@ public class MainPageNameSearch extends BasePage{
     public String getWorkerName() {
         return workerName.getAttribute("innerText");
     }
+
+    public String getNoWorkerFoundMessage() {
+        return noWorkerFoundMessage.getText();
+    }
+
+
 }
