@@ -22,12 +22,12 @@ public class LogoutStepDefinitions {
     }
 
     @When("^I press LOGOUT button$")
-    public void i_press_logout_button() throws Throwable {
+    public void i_press_logout_button() {
         objMainPage.pressLogoutButton();
     }
 
     @And("^I shouldn't see logged user$")
-    public void i_shouldnt_see_logged_user() throws Throwable {
+    public void i_shouldnt_see_logged_user()  {
         Assertions.assertFalse(objMainPage.loggedUserIsVisible());
     }
 

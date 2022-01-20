@@ -2,8 +2,6 @@ package StepDefinitions;
 
 import PageFactory.LoginPage;
 import PageFactory.MainPage;
-import io.cucumber.java.After;
-import io.cucumber.java.PendingException;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;

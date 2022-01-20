@@ -16,23 +16,23 @@ public class ProfessionStepDefinitions {
     MainPageProfession mainPageProfession = new MainPageProfession("");
 
     @Given("^User should landing on main page$")
-    public void user_should_landing_on_main_page() throws Throwable {
+    public void user_should_landing_on_main_page() {
         mainPageProfession.navigateToMainPage();
     }
 
     @When("^User click on Profession menu point$")
-    public void user_click_on_profession_menu_point() throws Throwable {
+    public void user_click_on_profession_menu_point() {
         mainPageProfession.clickOnProfessionsMenuPoint();
     }
 
     @Then("^User click on a profession (.+)$")
-    public void user_click_on_a_profession(String profession) throws Throwable {
+    public void user_click_on_a_profession(String profession) {
         MainPageProfession mainPageProfession = new MainPageProfession(profession);
         mainPageProfession.professionMenuPoint.click();
     }
 
     @And("^Chek that the corresponding workers show up (.+) (.+)$")
-    public void chek_that_the_corresponding_workers_show_up(String profession, int numberofworker) throws Throwable {
+    public void chek_that_the_corresponding_workers_show_up(String profession, int numberofworker) {
         int actualNumberOfWorker = mainPageProfession.returnNumberOfWorkersWhereProfessionIsAppeared(profession);
         assertEquals(numberofworker, actualNumberOfWorker);
     }

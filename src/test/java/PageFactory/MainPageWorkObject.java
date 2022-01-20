@@ -31,8 +31,6 @@ public class MainPageWorkObject extends BasePage{
     @FindBy(xpath = "//div[@id='worker-card-container']//div[@class='worker-card']")
     List<WebElement> workers;
 
-
-
     public MainPageWorkObject(String workObject) {
         wait = new WebDriverWait(driver, Duration.ofSeconds(TIMEOUT, POLLING));
         DefaultParameterProvider.properties.set(Map.of("id.text", workObject));
@@ -48,10 +46,10 @@ public class MainPageWorkObject extends BasePage{
     }
 
     public void clickOnWorkObjectMenuPoint(){
-        driver.findElement(By.xpath("//div[@id='workObjectExtraSearch']")).click();
+        workObjectMenuPoint.click();
     }
 
-    public void clickOnRadioButton() throws InterruptedException {
+    public void clickOnRadioButton(){
         workObject.click();
         wait.until(ExpectedConditions.elementSelectionStateToBe(workObject, true));
     }
