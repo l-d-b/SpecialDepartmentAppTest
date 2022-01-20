@@ -43,5 +43,12 @@ public class MainPageNameSearch extends BasePage{
         return noWorkerFoundMessage.getText();
     }
 
+    public String actualWorker(){
+        if(!(this.getWorkerName().equals(""))){
+            return getNoWorkerFoundMessage();
+        } else {
+            return getWorkerName();
+        }
+    }
 
 }
