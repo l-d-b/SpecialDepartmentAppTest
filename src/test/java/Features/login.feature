@@ -9,9 +9,9 @@ Feature: Application login
     And Login correct
     And Tear down
     Examples:
-      | Username              | Password        | expectedText                                           |
-      | "test@test.com"       | "wrongpassword" | Wrong email address or password was given! Try again.. |
-      | "wrongemail@test.com" | "1234"          | Wrong email address or password was given! Try again.. |
+      | Username | Password | expectedText |
+      | "test@test.com" | "wrongpassword" | Wrong email address or password was given! Try again.. |
+      | "wrongemail@test.com" | "1234" | Wrong email address or password was given! Try again..|
 
   Scenario: login with valid credentials
     Given I am on the login page
